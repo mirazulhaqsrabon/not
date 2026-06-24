@@ -1,5 +1,4 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/ui/Sidebar.astro';
 import Footer from '../components/ui/Footer.astro';
@@ -37,48 +36,74 @@ body: "Reliable systems come from consistent effort. I focus on writing clean co
 icon: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
 },
 ];
+---
 
 <Layout title="My approach | Mirazul Haq Srabon" description="A backend engineer focused on scalable systems, performance, and writing code that lasts.">
-  <Sidebar currentPath={Astro.url.pathname} />  <div class="content-area pt-14 md:pt-0">
+  <Sidebar currentPath={Astro.url.pathname} />
+
+  <div class="content-area pt-14 md:pt-0">
     <main id="main-content">
       <section class="section-padding">
-        <div class="section-container">      <a href="/" class="back-home">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-        Back home
-      </a>
+        <div class="section-container">
 
-      <div class="mb-16">
-        <p class="label mb-3">My Approach</p>
-        <h1 class="section-title mb-5">
-          How I think about<br />leading people.
-        </h1>
-        <p class="body-text max-w-lg">
-          Leadership isn't a title. It's a practice.
-        </p>
-      </div>
+          <!-- Back -->
+          <a href="/" class="back-home">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="M19 12H5"/>
+            </svg>
+            Back home
+          </a>
 
-      <div class="divide-y" style="border-color: var(--border);">
-        {principles.map((p) => (
-          <div class="py-10 grid md:grid-cols-[80px_1fr] gap-6 items-start">
-            <div class="flex md:flex-col items-center md:items-start gap-3">
-              <span>{p.number}</span>
-              <div class="w-9 h-9 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" set:html={p.icon} />
-              </div>
-            </div>
-
-            <div>
-              <h2>{p.title}</h2>
-              <p>{p.body}</p>
-            </div>
+          <!-- Header -->
+          <div class="mb-16">
+            <p class="label mb-3">My Approach</p>
+            <h1 class="section-title mb-5">
+              How I think about<br />leading people.
+            </h1>
+            <p class="body-text max-w-lg">
+              Leadership isn't a title. It's a practice.
+            </p>
           </div>
-        ))}
-      </div>
 
-    </div>
-  </section>
-</main>
-<Footer />
+          <!-- List -->
+          <div class="divide-y" style="border-color: var(--border);">
+            {principles.map((p) => (
+              <div class="py-10 grid md:grid-cols-[80px_1fr] gap-6 items-start">
 
-  </div>  <ChatWidget client:only="react" />
+                <!-- Left -->
+                <div class="flex md:flex-col items-center md:items-start gap-3">
+                  <span>{p.number}</span>
+
+                  <div class="w-9 h-9 flex items-center justify-center">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      set:html={p.icon}
+                    ></svg>
+                  </div>
+                </div>
+
+                <!-- Right -->
+                <div>
+                  <h2 class="text-xl font-semibold mb-3">{p.title}</h2>
+                  <p>{p.body}</p>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+
+  <ChatWidget client:only="react" />
 </Layout>
