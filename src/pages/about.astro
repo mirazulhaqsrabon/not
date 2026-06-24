@@ -2,11 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/ui/Sidebar.astro';
 import Footer from '../components/ui/Footer.astro';
-
 const tags = [
-  'Backend Development', 'Api Design', 'System Database Management, '','Authentication','Problem Solving',
-  'Debugging',  'Vibe Coding', ];
-
+  'Backend Development',
+  'API Design',
+  'System Database Management',
+  'Authentication',
+  'Problem Solving',
+  'Debugging',
+  'Vibe Coding',
+];
     try {
       const res = await fetch(
         'https://api.open-meteo.com/v1/forecast?latitude=24.7471&longitude=90.4203&current=temperature_2m,weathercode&temperature_unit=celsius&timezone=Asia/Dhakahttps://api.open-meteo.com/v1/forecast?latitude=24.7471&longitude=90.4203&current=temperature_2m,weathercode&temperature_unit=celsius&timezone=Asia/Dhaka'
