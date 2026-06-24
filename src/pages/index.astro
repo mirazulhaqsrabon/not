@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/ui/Sidebar.astro';
+import Footer from '../components/ui/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import AboutPreview from '../components/sections/AboutPreview.astro';
+import Work from '../components/sections/Work.astro';
+import Community from '../components/sections/Community.astro';
+import VibeCoding from '../components/sections/VibeCoding.astro';
+import ChatWidget from '../components/chat/ChatWidget.tsx';
+---
+
+<Layout
+  title="Mirazul Haq Srabon | Backend Developer"
+  description="Backend Developer specializing in Node.js, Python, APIs, and scalable systems. Based in Bangladesh."
+  showJsonLd={true}
+>
+  <Sidebar currentPath={Astro.url.pathname} />
+
+  <div class="content-area pt-14 md:pt-0">
+    <main id="main-content">
+      <Hero />
+      <AboutPreview />
+      <Work />
+      
+      <VibeCoding />
+    </main>
+    <Footer />
+  </div>
+
+  <ChatWidget client:only="react" />
+</Layout>
